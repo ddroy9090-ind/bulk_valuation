@@ -1,6 +1,8 @@
 <?php
-include 'includes/common-header.php';
+require __DIR__ . '/includes/auth.php';
+require_role('Admin');
 require __DIR__ . '/includes/db.php';
+include 'includes/common-header.php';
 
 
 $successMessage = "";
