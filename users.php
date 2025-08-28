@@ -181,20 +181,30 @@ $users = $stmt->fetchAll();
 <script>
 function openAddModal() {
     document.getElementById('modalTitle').innerText = 'Register User';
-    document.getElementById('submitBtn').name = 'register';
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.name = 'register';
+    submitBtn.textContent = 'Register';
     document.getElementById('userForm').reset();
     document.querySelectorAll('.passwordFields').forEach(el => el.style.display = 'block');
+    document.getElementById('password').required = true;
+    document.getElementById('confirm_password').required = true;
 }
 
 function openEditModal(id, name, username, email, role) {
     document.getElementById('modalTitle').innerText = 'Edit User';
-    document.getElementById('submitBtn').name = 'update';
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.name = 'update';
+    submitBtn.textContent = 'Update';
     document.getElementById('userId').value = id;
     document.getElementById('name').value = name;
     document.getElementById('username').value = username;
     document.getElementById('email').value = email;
     document.getElementById('role').value = role;
     document.querySelectorAll('.passwordFields').forEach(el => el.style.display = 'none');
+    document.getElementById('password').required = false;
+    document.getElementById('confirm_password').required = false;
+    document.getElementById('password').value = '';
+    document.getElementById('confirm_password').value = '';
 }
 
 // Toast display
