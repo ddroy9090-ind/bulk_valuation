@@ -43,7 +43,9 @@
     <ul>
         <li><a href="index.php"><img src="assets/icons/home.png" class="icon" alt=""><span>Dashboard</span></a></li>
         <li><a href="reports-library.php"><img src="assets/icons/report.png" class="icon" alt=""><span>Reports Library</span></a></li>
+        <?php if (($_SESSION['role'] ?? '') === 'Admin'): ?>
         <li><a href="users.php"><img src="assets/icons/user.png" class="icon" alt=""><span>Users</span></a></li>
+        <?php endif; ?>
     </ul>
 
 </div>

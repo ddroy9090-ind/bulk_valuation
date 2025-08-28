@@ -7,6 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Optional: include auth helpers
 require_once __DIR__ . '/auth.php';
+require_login();
 
 // You can add global meta, CSS links here if desired
 ?>
