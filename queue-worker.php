@@ -11,16 +11,11 @@ $options->set('isRemoteEnabled', true);
 $options->set('isHtml5ParserEnabled', true); // better HTML5 parsing
 $options->set('chroot', realpath(__DIR__ . '/pdfhtml'));
 
-// Determine if the pcntl extension is available (not on Windows)
-$canFork = function_exists('pcntl_fork');
-
-// Limit of parallel workers (falls back to single process without pcntl)
-$maxProcesses = $canFork ? 2 : 1;
+// Always process jobs sequentially
+$canFork = false;
+$maxProcesses = 1;
 $children = [];
-
-if (!$canFork) {
-    echo "pcntl extension not available, running in single-process mode" . PHP_EOL;
-}
+echo "Running in single-process mode" . PHP_EOL;
 
 // Shared job handler used by both forked and single-process modes
 $handleJob = function ($job) use ($pdo, $options) {
