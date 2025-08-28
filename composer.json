@@ -1,0 +1,8 @@
+{
+    "name": "drel/app",
+    "type": "project",
+    "require": {
+        "dompdf/dompdf": "^2.0",
+        "phpoffice/phpspreadsheet": "^1.29"
+    }
+}
